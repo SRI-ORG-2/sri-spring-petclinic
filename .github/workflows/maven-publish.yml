@@ -33,7 +33,7 @@ jobs:
       uses: docker://aquasec/aqua-scanner
       with:
         args: trivy fs --sast --scanners misconfig,vuln,secret --db-repository=registry.aquasec.com/trivy-db:2 --checks-bundle-repository=registry.aquasec.com/trivy-checks:1 --java-db-repository=registry.aquasec.com/trivy-java-db:1 .
-          # Access Aqua credentials from secrets
+          # Access Aqua credentials from secret
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
